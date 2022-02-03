@@ -5,7 +5,7 @@
  * Schema that describes the User and functions that use it
  */
 import mongoose from 'mongoose';
-import { Category } from '../../Models';
+import { Category } from '../Models';
 
 const CategorySchema = new mongoose.Schema({
   parent_id: String,
