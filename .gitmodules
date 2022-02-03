@@ -1,0 +1,6 @@
+[submodule "src/Models"]
+	path = src/Models
+	url = https://github.com/towech-financeApp/Models
+[submodule "Models"]
+	path = Models
+	url = https://github.com/towech-financeApp/Models
