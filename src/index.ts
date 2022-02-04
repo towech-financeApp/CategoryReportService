@@ -10,7 +10,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 // Libraries
-import Queue, { AmqpMessage } from 'tow96-amqpwrapper';
+import Queue from 'tow96-amqpwrapper';
 import express from 'express';
 import logger from 'tow96-logger';
 import mongoose from 'mongoose';
@@ -19,7 +19,7 @@ import MessageProcessor from './MessageProcessor';
 // Declares the class
 class CategoryReportService {
   // Gets some values from the env, if not present, uses default values
-  private queueName = process.env.QUEUE_NAME || 'userQueue';
+  private queueName = process.env.QUEUE_NAME || 'categoryQueue';
   private databaseUrl = process.env.DATABASE_URL || '';
   private httpPort = process.env.PORT || 3000;
   private serviceName = process.env.NAME || 'CategoryReportService';

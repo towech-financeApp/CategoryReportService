@@ -14,7 +14,6 @@ interface getAll {
 }
 
 export default class MessageProcessor {
-
   static process = async (message: AmqpMessage): Promise<AmqpMessage> => {
     // Destructures the message
     const { type, payload } = message;
@@ -33,8 +32,8 @@ export default class MessageProcessor {
     logger.http(`get all categories for user: ${message.user_id}`);
 
     try {
-      const categories = dbCategories.getAll(message.user_id);
-      logger.debug(categories);
+      const categories = await dbCategories.getAll(message.user_id);
+
       return new AmqpMessage(categories, 'get-all', 200);
     } catch (e) {
       return AmqpMessage.errorMessage(`Unexpected error`, 500, e);
