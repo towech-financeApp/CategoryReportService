@@ -63,7 +63,7 @@ class CategoryReportService {
     channel.consume(
       this.queueName,
       async (msg) => {
-        if (!msg) return; // If there is no message, finsihes and checks again, this allows for faster iterations
+        if (!msg) return; // If there is no message, finishes and checks again, this allows for faster iterations
 
         // Handles the message
         try {

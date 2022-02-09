@@ -5,7 +5,7 @@
  * Schema that describes the User and functions that use it
  */
 import mongoose from 'mongoose';
-import { Category } from '../Models';
+import { Objects } from '../Models';
 
 const CategorySchema = new mongoose.Schema({
   parent_id: String,
@@ -23,9 +23,9 @@ export default class dbCategories {
    *
    * @returns {{Category[]}} The categories from the DB
    */
-  static getAll = async (id: string): Promise<Category[]> => {
+  static getAll = async (id: string): Promise<Objects.Category[]> => {
     const response = await categoryCollection.find({ $or: [{ user_id: '-1' }, { user_id: id }] });
 
-    return response as Category[];
+    return response as Objects.Category[];
   };
 }
