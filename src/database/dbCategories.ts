@@ -4,7 +4,11 @@
  *
  * Schema that describes the User and functions that use it
  */
+
+// Libraries
 import mongoose from 'mongoose';
+
+// Models
 import { Objects } from '../Models';
 
 const CategorySchema = new mongoose.Schema({

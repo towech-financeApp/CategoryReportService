@@ -10,10 +10,12 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 // Libraries
-import Queue from 'tow96-amqpwrapper';
 import express from 'express';
 import logger from 'tow96-logger';
 import mongoose from 'mongoose';
+import Queue from 'tow96-amqpwrapper';
+
+// Utils
 import MessageProcessor from './MessageProcessor';
 
 // Declares the class

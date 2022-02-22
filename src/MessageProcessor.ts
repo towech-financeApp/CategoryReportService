@@ -4,10 +4,16 @@
  *
  * Class that handles all the valid types of message the service can receive
  */
+
+// Libraries
 import { AmqpMessage } from 'tow96-amqpwrapper';
 import logger from 'tow96-logger';
-import dbCategories from './database/dbCategories';
+
+// Models
 import { Requests } from './Models';
+
+// Database
+import dbCategories from './database/dbCategories';
 
 export default class MessageProcessor {
   static process = async (message: AmqpMessage): Promise<AmqpMessage> => {
