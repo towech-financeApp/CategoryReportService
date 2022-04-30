@@ -18,7 +18,7 @@ const CategorySchema = new mongoose.Schema({
   user_id: String,
 });
 
-const categoryCollection = mongoose.model('Categories', CategorySchema);
+const categoryCollection = mongoose.model<Objects.Category>('Categories', CategorySchema);
 
 // Functions that communicate to the DB
 export default class dbCategories {

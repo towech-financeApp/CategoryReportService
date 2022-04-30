@@ -10,7 +10,7 @@ import { AmqpMessage } from 'tow96-amqpwrapper';
 import logger from 'tow96-logger';
 
 // Models
-import { Requests } from './Models';
+import { Objects, Requests } from './Models';
 
 // Database
 import dbCategories from './database/dbCategories';
@@ -30,7 +30,7 @@ export default class MessageProcessor {
     }
   };
 
-  private static getAllCategories = async (message: Requests.WorkerGetAllCategories): Promise<AmqpMessage> => {
+  private static getAllCategories = async (message: Requests.WorkerGetAllCategories): Promise<AmqpMessage<Objects.Category[]>> => {
     logger.http(`get all categories for user: ${message.user_id}`);
 
     try {
