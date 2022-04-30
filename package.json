@@ -39,7 +39,7 @@
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
     "mongoose": "^6.2.3",
-    "tow96-amqpwrapper": "^0.1.2",
+    "tow96-amqpwrapper": "^0.2.0",
     "tow96-logger": "^0.1.2"
   }
 }
