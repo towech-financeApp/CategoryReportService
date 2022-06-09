@@ -92,6 +92,17 @@ export default class DbCategories {
     return deletedCategory as Objects.Category;
   };
 
+  /** deleteUser
+   * Deletes all the categories of a user
+   *
+   * @param {string} id
+   *
+   * @returns The deleted transaction as confirmation
+   */
+  static deleteUser = async (id: string): Promise<void> => {
+    await categoryCollection.deleteMany({ user_id: id });
+  };
+
   /** getAll
    * Returns a list with all the categories for a user, includes the global ones
    *

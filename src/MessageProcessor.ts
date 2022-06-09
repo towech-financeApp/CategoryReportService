@@ -35,6 +35,8 @@ export default class MessageProcessor {
         return await MessageProcessor.edit(payload);
       case 'delete-Category':
         return await MessageProcessor.delete(payload);
+      case 'delete-User':
+        return await MessageProcessor.deleteUser(payload);
       default:
         logger.debug(`Unsupported function type: ${type}`);
         return AmqpMessage.errorMessage(`Unsupported function type: ${type}`);
@@ -106,6 +108,24 @@ export default class MessageProcessor {
         const deletedCategory = await DbCategories.delete(validCategory.category);
         return new AmqpMessage(deletedCategory, 'delete-Category', 200);
       }
+    } catch (e) {
+      return AmqpMessage.errorMessage(`Unexpected error`, 500, e);
+    }
+  };
+
+  /** deleteUser
+   * Deletes all categories belonging to a user
+   * @param {Objects.User.BaseUser} user
+   *
+   * @returns The deleted category
+   */
+  static deleteUser = async (message: Objects.User.BaseUser): Promise<AmqpMessage<null>> => {
+    try {
+      logger.http(`Deleting all categories for user: ${message._id}`);
+
+      await DbCategories.deleteUser(message._id);
+
+      return new AmqpMessage(null, 'delete-User', 200);
     } catch (e) {
       return AmqpMessage.errorMessage(`Unexpected error`, 500, e);
     }
